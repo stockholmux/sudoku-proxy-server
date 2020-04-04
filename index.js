@@ -28,6 +28,8 @@ program
 
 const args = program.parse(process.argv);
 app.use(express.static(args.static));
+console.log(`Engine Host: ${args.engineHost}`);
+console.log(`MatchMakerHost Host: ${args.matchMakerHost}`);
 
 const wsProxy = createProxyMiddleware('/', {
   target: `http://${args.engineHost}`,
